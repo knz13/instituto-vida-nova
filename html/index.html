@@ -11,9 +11,11 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <a href="#app-view" class="skip-link">Pular para o conteúdo principal</a>
+
   <header class="site-header">
-    <nav class="container">
-      <a href="#/" class="logo-link" data-link><img src="../imagens/logo.png" alt="Logotipo do Instituto Vida Nova"></a>
+    <nav class="container" aria-label="Principal">
+      <a href="#/" class="logo-link" data-link><img src="../imagens/logo.png" alt="Instituto Vida Nova, página inicial"></a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="menu-principal">
         <span aria-hidden="true">&#9776;</span>
         <span class="sr-only">Abrir menu</span>
@@ -21,10 +23,10 @@
       <ul class="nav-menu" id="menu-principal">
         <li><a href="#/" data-link data-route="">Início</a></li>
         <li class="nav-item">
-          <button type="button" class="dropdown-toggle" aria-expanded="false">
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="submenu-ajudar">
             Como ajudar <span aria-hidden="true">&#9662;</span>
           </button>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" id="submenu-ajudar">
             <li><a href="#/projetos/doacao" data-link>Como doar</a></li>
             <li><a href="#/projetos/voluntariado" data-link>Como ser voluntário</a></li>
           </ul>
@@ -36,14 +38,16 @@
     </nav>
   </header>
 
-  <main id="app-view"></main>
+  <main id="app-view" tabindex="-1"></main>
+
+  <div id="anuncio" class="sr-only" role="status" aria-live="polite"></div>
 
   <footer class="site-footer">
     <p>&copy; 2026 Instituto Vida Nova. Todos os direitos reservados.</p>
   </footer>
 
   <div class="modal-overlay" id="modal-sucesso" hidden>
-    <div class="modal" role="dialog" aria-labelledby="modal-titulo" aria-modal="true">
+    <div class="modal" role="dialog" aria-labelledby="modal-titulo" aria-describedby="modal-texto" aria-modal="true">
       <h2 id="modal-titulo">Cadastro enviado!</h2>
       <p id="modal-texto">Obrigado por apoiar o Instituto Vida Nova. Em breve nossa equipe entrará em contato.</p>
       <button type="button" class="btn btn-primary" id="modal-fechar">Fechar</button>
