@@ -87,3 +87,29 @@ img {
 #app-view:focus {
   outline: none;
 }
+
+:focus-visible {
+  outline: 3px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+
+.site-header :focus-visible {
+  outline-color: var(--color-secondary);
+}
+
+.modal :focus-visible {
+  outline-color: var(--color-primary-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
