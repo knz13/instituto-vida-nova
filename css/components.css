@@ -204,8 +204,8 @@
 }
 
 .btn:disabled {
-  background-color: var(--color-neutral-300);
-  color: var(--color-neutral-600);
+  background-color: var(--color-border);
+  color: var(--color-text-muted);
   cursor: not-allowed;
   transform: none;
 }
@@ -257,8 +257,8 @@
 
 /* ===== Cartões ===== */
 .card {
-  background-color: var(--color-white);
-  border: 1px solid var(--color-neutral-300);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-3);
   box-shadow: var(--shadow-sm);
@@ -290,7 +290,7 @@
 
 /* ===== Formulários ===== */
 .form-fieldset {
-  border: 1px solid var(--color-neutral-300);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-3);
   margin-bottom: var(--space-3);
@@ -298,7 +298,7 @@
 
 .form-fieldset legend {
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-link);
   padding-inline: var(--space-1);
 }
 
@@ -316,7 +316,9 @@
 .form-field input,
 .form-field select {
   padding: var(--space-1);
-  border: 1px solid var(--color-neutral-500);
+  border: 1px solid var(--color-border-strong);
+  background-color: var(--color-surface);
+  color: var(--color-text);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-base);
   font-family: inherit;
@@ -331,12 +333,12 @@
 
 .form-field input:user-invalid,
 .form-field select:user-invalid {
-  border-color: var(--color-error);
+  border-color: var(--color-field-invalid);
 }
 
 .form-field input:user-valid,
 .form-field select:user-valid {
-  border-color: var(--color-success);
+  border-color: var(--color-field-valid);
 }
 
 .form-check-group {
@@ -368,15 +370,15 @@
 }
 
 .alert-success {
-  background-color: #e8f5e9;
-  color: var(--color-success);
-  border: 1px solid var(--color-success);
+  background-color: var(--color-alert-success-bg);
+  color: var(--color-alert-success-text);
+  border: 1px solid var(--color-alert-success-text);
 }
 
 .alert-error {
-  background-color: #fdecea;
-  color: var(--color-error);
-  border: 1px solid var(--color-error);
+  background-color: var(--color-alert-error-bg);
+  color: var(--color-alert-error-text);
+  border: 1px solid var(--color-alert-error-text);
 }
 
 /* ===== Modal ===== */
@@ -396,7 +398,7 @@
 }
 
 .modal {
-  background-color: var(--color-white);
+  background-color: var(--color-surface);
   border-radius: var(--radius-md);
   padding: var(--space-4);
   max-width: 420px;
@@ -406,7 +408,7 @@
 }
 
 .modal h2 {
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 
 .modal .btn {

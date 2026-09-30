@@ -13,8 +13,8 @@ body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
-  color: var(--color-neutral-900);
-  background-color: var(--color-white);
+  color: var(--color-text);
+  background-color: var(--color-surface);
 }
 
 h1 {
@@ -42,11 +42,11 @@ p {
 small,
 .text-sm {
   font-size: var(--font-size-sm);
-  color: var(--color-neutral-600);
+  color: var(--color-text-muted);
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 
 img {
@@ -89,7 +89,7 @@ img {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-primary-dark);
+  outline: 3px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -98,7 +98,7 @@ img {
 }
 
 .modal :focus-visible {
-  outline-color: var(--color-primary-dark);
+  outline-color: var(--color-focus);
 }
 
 @media (prefers-reduced-motion: reduce) {

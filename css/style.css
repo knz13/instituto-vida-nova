@@ -14,10 +14,10 @@ section > img {
 }
 
 .site-footer {
-  background-color: var(--color-neutral-100);
+  background-color: var(--color-surface-alt);
   text-align: center;
   padding: var(--space-3);
-  color: var(--color-neutral-600);
+  color: var(--color-text-muted);
 }
 
 address {
