@@ -1,0 +1,25 @@
+/* Estilos específicos das páginas, complementares ao design system */
+
+main {
+  padding-block: var(--space-4);
+}
+
+section {
+  margin-bottom: var(--space-5);
+}
+
+section > img {
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+}
+
+.site-footer {
+  background-color: var(--color-neutral-100);
+  text-align: center;
+  padding: var(--space-3);
+  color: var(--color-neutral-600);
+}
+
+address {
+  font-style: normal;
+}
