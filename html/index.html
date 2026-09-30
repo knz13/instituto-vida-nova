@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instituto Vida Nova</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container">
+      <a href="#/" class="logo-link" data-link><img src="../imagens/logo.png" alt="Logotipo do Instituto Vida Nova"></a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="menu-principal">
+        <span aria-hidden="true">&#9776;</span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+      <ul class="nav-menu" id="menu-principal">
+        <li><a href="#/" data-link data-route="">Início</a></li>
+        <li class="nav-item">
+          <button type="button" class="dropdown-toggle" aria-expanded="false">
+            Como ajudar <span aria-hidden="true">&#9662;</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#/projetos/doacao" data-link>Como doar</a></li>
+            <li><a href="#/projetos/voluntariado" data-link>Como ser voluntário</a></li>
+          </ul>
+        </li>
+        <li><a href="#/projetos" data-link data-route="projetos">Projetos Sociais</a></li>
+        <li><a href="#/cadastro" data-link data-route="cadastro">Cadastre-se</a></li>
+        <li><a href="#/inscritos" data-link data-route="inscritos">Inscritos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="app-view"></main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Instituto Vida Nova. Todos os direitos reservados.</p>
+  </footer>
+
+  <div class="modal-overlay" id="modal-sucesso" hidden>
+    <div class="modal" role="dialog" aria-labelledby="modal-titulo" aria-modal="true">
+      <h2 id="modal-titulo">Cadastro enviado!</h2>
+      <p id="modal-texto">Obrigado por apoiar o Instituto Vida Nova. Em breve nossa equipe entrará em contato.</p>
+      <button type="button" class="btn btn-primary" id="modal-fechar">Fechar</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/imask@7/dist/imask.min.js"></script>
+  <script src="../js/modules/storage.js"></script>
+  <script src="../js/modules/mascaras.js"></script>
+  <script src="../js/modules/validacao.js"></script>
+  <script src="../js/templates/home.js"></script>
+  <script src="../js/templates/projetos.js"></script>
+  <script src="../js/templates/cadastro.js"></script>
+  <script src="../js/templates/inscritos.js"></script>
+  <script src="../js/router.js"></script>
+  <script src="../js/modules/eventos.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
