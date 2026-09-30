@@ -48,12 +48,26 @@ App.modules.eventos = (() => {
     });
   }
 
+  let elementoAntesDoModal = null;
+
   function abrirModal(titulo, texto) {
     const modal = document.getElementById('modal-sucesso');
     if (!modal) return;
+    elementoAntesDoModal = document.activeElement;
     document.getElementById('modal-titulo').textContent = titulo;
     document.getElementById('modal-texto').textContent = texto;
     modal.hidden = false;
+    document.getElementById('modal-fechar').focus();
+  }
+
+  function fecharModal() {
+    const modal = document.getElementById('modal-sucesso');
+    if (!modal) return;
+    modal.hidden = true;
+    if (elementoAntesDoModal && document.contains(elementoAntesDoModal)) {
+      elementoAntesDoModal.focus();
+    }
+    elementoAntesDoModal = null;
   }
 
   function configurarModal() {
@@ -61,16 +75,51 @@ App.modules.eventos = (() => {
     const fechar = document.getElementById('modal-fechar');
     if (!modal || !fechar) return;
 
-    fechar.addEventListener('click', () => {
-      modal.hidden = true;
-    });
+    fechar.addEventListener('click', fecharModal);
 
     modal.addEventListener('click', (evento) => {
-      if (evento.target === modal) modal.hidden = true;
+      if (evento.target === modal) fecharModal();
+    });
+
+    modal.addEventListener('keydown', (evento) => {
+      if (evento.key !== 'Tab') return;
+      // único elemento focável do modal é o botão Fechar: mantém o foco nele
+      evento.preventDefault();
+      fechar.focus();
+    });
+  }
+
+  function configurarEscape() {
+    document.addEventListener('keydown', (evento) => {
+      if (evento.key !== 'Escape') return;
+
+      const modal = document.getElementById('modal-sucesso');
+      if (modal && !modal.hidden) {
+        fecharModal();
+        return;
+      }
+
+      const dropdown = document.querySelector('.nav-item.dropdown-open');
+      if (dropdown) {
+        dropdown.classList.remove('dropdown-open');
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+        return;
+      }
+
+      const menu = document.querySelector('.nav-menu.is-open');
+      if (menu) {
+        menu.classList.remove('is-open');
+        const botao = document.querySelector('.nav-toggle');
+        botao.setAttribute('aria-expanded', 'false');
+        botao.focus();
+      }
     });
   }
 
   function configurar() {
+    configurarEscape();
     configurarMenuMobile();
     configurarDropdown();
     configurarModal();
