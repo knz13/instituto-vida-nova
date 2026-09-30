@@ -19,7 +19,8 @@ App.modules.validacao = (() => {
   function mostrarAlerta(alerta, invalidos) {
     if (!alerta) return;
     const itens = invalidos.map((campo) => `<li>${rotuloDoCampo(campo)}</li>`).join('');
-    alerta.innerHTML = `Preencha corretamente os campos abaixo antes de enviar:<ul>${itens}</ul>`;
+    // o .alert é flex: o div mantém o texto e a lista empilhados
+    alerta.innerHTML = `<div>Preencha corretamente os campos abaixo antes de enviar:<ul>${itens}</ul></div>`;
     alerta.hidden = false;
   }
 

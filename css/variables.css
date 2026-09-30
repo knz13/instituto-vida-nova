@@ -19,6 +19,25 @@
   --color-neutral-100: #f5f5f0;
   --color-white: #ffffff;
 
+  /* Tokens semânticos (superfície, texto, borda...): é o que os modos escuro e
+     de alto contraste redefinem; os tokens acima continuam fixos */
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f5f0;
+  --color-text: #1a1a1a;
+  --color-text-muted: #5f6368;
+  --color-border: #d0d5d3;
+  --color-border-strong: #737876;
+  --color-link: #1f6f54;
+  --color-focus: #16503c;
+  --color-field-invalid: #c0392b;
+  --color-field-valid: #2e7d32;
+  --color-alert-error-bg: #fdecea;
+  --color-alert-error-text: #c0392b;
+  --color-alert-success-bg: #e8f5e9;
+  --color-alert-success-text: #2e7d32;
+
+  color-scheme: light dark;
+
   /* Estados */
   --color-success: #2e7d32;
   --color-error: #c0392b;
@@ -51,4 +70,68 @@
   /* Breakpoints (documentação; usados nas media queries) */
   --breakpoint-tablet: 768px;
   --breakpoint-desktop: 1024px;
+}
+
+/* ===== Modo escuro (preferência do sistema) ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #121816;
+    --color-surface-alt: #1c2421;
+    --color-text: #ecefed;
+    --color-text-muted: #b7bfbb;
+    --color-border: #3d4744;
+    --color-border-strong: #8b9591;
+    --color-link: #6fd0a8;
+    --color-focus: #8fe0bf;
+    --color-field-invalid: #ff8a7a;
+    --color-field-valid: #7fd488;
+    --color-alert-error-bg: #3a1a16;
+    --color-alert-error-text: #ff9d90;
+    --color-alert-success-bg: #16301a;
+    --color-alert-success-text: #8fd694;
+  }
+}
+
+/* ===== Alto contraste (preferência do sistema) ===== */
+@media (prefers-contrast: more) {
+  :root {
+    --color-primary: #0e3f2e;
+    --color-primary-dark: #082a1e;
+    --color-surface: #ffffff;
+    --color-surface-alt: #f0f0f0;
+    --color-text: #000000;
+    --color-text-muted: #333333;
+    --color-border: #595959;
+    --color-border-strong: #000000;
+    --color-link: #0b3d2c;
+    --color-focus: #0b3d2c;
+    --color-field-invalid: #8a1c10;
+    --color-field-valid: #14501a;
+    --color-alert-error-bg: #ffffff;
+    --color-alert-error-text: #8a1c10;
+    --color-alert-success-bg: #ffffff;
+    --color-alert-success-text: #14501a;
+  }
+}
+
+/* Escuro + alto contraste: vem por último e redefine tudo, nada do bloco claro vaza */
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  :root {
+    --color-primary: #0e3f2e;
+    --color-primary-dark: #082a1e;
+    --color-surface: #000000;
+    --color-surface-alt: #0d0d0d;
+    --color-text: #ffffff;
+    --color-text-muted: #e0e0e0;
+    --color-border: #bfbfbf;
+    --color-border-strong: #ffffff;
+    --color-link: #a6f0cf;
+    --color-focus: #a6f0cf;
+    --color-field-invalid: #ffb3a8;
+    --color-field-valid: #b2f0b6;
+    --color-alert-error-bg: #000000;
+    --color-alert-error-text: #ffb3a8;
+    --color-alert-success-bg: #000000;
+    --color-alert-success-text: #b2f0b6;
+  }
 }
