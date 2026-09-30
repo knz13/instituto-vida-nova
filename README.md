@@ -51,6 +51,8 @@ O resultado vai para `dist/` (ignorada pelo Git). O script `scripts/build.mjs` l
 
 O site segue a WCAG 2.1 AA: link "Pular para o conteúdo", landmarks nomeados, foco movido para o título a cada troca de página, navegação completa por teclado (Escape fecha modal, dropdown e menu), foco visível, contraste mínimo nos campos e erros de formulário descritos em texto. A auditoria com o axe-core não encontra violações nas quatro rotas.
 
+O site também respeita as preferências do sistema, só com CSS: modo escuro (`prefers-color-scheme: dark`), alto contraste (`prefers-contrast: more`) e os dois juntos. As cores são tokens semânticos em `css/variables.css` (`--color-surface`, `--color-text`, `--color-link`, `--color-border-strong`...), e cada modo só redefine esses tokens. Contraste de texto de 4,5:1 ou mais e de bordas de campos de 3:1 ou mais em todos os modos; não tem botão de alternar, ele segue o sistema.
+
 ## Como usar
 
 1. Acesse **Cadastre-se** e preencha o formulário.
