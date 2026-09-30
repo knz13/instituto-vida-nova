@@ -21,7 +21,8 @@ App.router = (() => {
       botao.addEventListener('click', () => {
         const id = Number(botao.dataset.id);
         App.modules.storage.remover(id);
-        render();
+        render(false);
+        anunciar('Cadastro removido');
       });
     });
   }
@@ -41,11 +42,22 @@ App.router = (() => {
 
   function atualizarLinkAtivo(caminho) {
     document.querySelectorAll('[data-route]').forEach((link) => {
-      link.classList.toggle('active', link.dataset.route === caminho);
+      const ativo = link.dataset.route === caminho;
+      link.classList.toggle('active', ativo);
+      if (ativo) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
     });
   }
 
-  function render() {
+  function anunciar(mensagem) {
+    const regiao = document.getElementById('anuncio');
+    if (regiao) regiao.textContent = mensagem;
+  }
+
+  function render(moverFoco = true) {
     const { caminho, ancora } = lerHash();
     const rota = rotas[caminho] || rotas[''];
     const view = document.getElementById('app-view');
@@ -62,11 +74,20 @@ App.router = (() => {
     } else {
       window.scrollTo({ top: 0 });
     }
+
+    if (moverFoco) {
+      const titulo = view.querySelector('h1');
+      if (titulo) {
+        titulo.setAttribute('tabindex', '-1');
+        titulo.focus({ preventScroll: true });
+      }
+      anunciar(`Página ${rota.titulo}`);
+    }
   }
 
   function init() {
-    render();
-    window.addEventListener('hashchange', render);
+    render(false);
+    window.addEventListener('hashchange', () => render(true));
   }
 
   return { init, render };

@@ -66,3 +66,50 @@ img {
   white-space: nowrap;
   border: 0;
 }
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: var(--space-2);
+  transform: translateY(-120%);
+  background-color: var(--color-secondary);
+  color: var(--color-neutral-900);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  font-weight: 700;
+  z-index: 200;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+#app-view:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+
+.site-header :focus-visible {
+  outline-color: var(--color-secondary);
+}
+
+.modal :focus-visible {
+  outline-color: var(--color-primary-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
