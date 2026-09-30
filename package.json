@@ -1,0 +1,13 @@
+{
+  "name": "instituto-vida-nova",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site do Instituto Vida Nova (SPA em HTML, CSS e JS puros)",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "sharp": "^0.34.0"
+  }
+}
