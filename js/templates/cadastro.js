@@ -6,7 +6,7 @@ App.templates.cadastro = () => `
   <section id="cadastro" class="container">
     <h1>Cadastre-se para apoiar o Instituto Vida Nova</h1>
 
-    <div id="alerta-formulario" class="alert alert-error" hidden>
+    <div id="alerta-formulario" class="alert alert-error" role="alert" hidden>
       Preencha corretamente todos os campos obrigatórios antes de enviar.
     </div>
 
@@ -16,17 +16,17 @@ App.templates.cadastro = () => `
 
         <div class="form-field">
           <label for="nome">Nome completo</label>
-          <input type="text" id="nome" name="nome" required>
+          <input type="text" id="nome" name="nome" autocomplete="name" required>
         </div>
 
         <div class="form-field">
           <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" autocomplete="email" required>
         </div>
 
         <div class="form-field">
           <label for="nascimento">Data de nascimento</label>
-          <input type="date" id="nascimento" name="nascimento" required>
+          <input type="date" id="nascimento" name="nascimento" autocomplete="bday" required>
         </div>
 
         <div class="form-field">
@@ -40,22 +40,22 @@ App.templates.cadastro = () => `
 
         <div class="form-field">
           <label for="telefone">Telefone</label>
-          <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" pattern="\\(\\d{2}\\) \\d{5}-\\d{4}" maxlength="15" required>
+          <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(00) 00000-0000" pattern="\\(\\d{2}\\) \\d{5}-\\d{4}" maxlength="15" required>
         </div>
 
         <div class="form-field">
           <label for="cep">CEP</label>
-          <input type="text" id="cep" name="cep" placeholder="00000-000" pattern="\\d{5}-\\d{3}" maxlength="9" required>
+          <input type="text" id="cep" name="cep" autocomplete="postal-code" placeholder="00000-000" pattern="\\d{5}-\\d{3}" maxlength="9" required>
         </div>
 
         <div class="form-field">
           <label for="cidade">Cidade</label>
-          <input type="text" id="cidade" name="cidade" required>
+          <input type="text" id="cidade" name="cidade" autocomplete="address-level2" required>
         </div>
 
         <div class="form-field">
           <label for="estado">Estado</label>
-          <select id="estado" name="estado" required>
+          <select id="estado" name="estado" autocomplete="address-level1" required>
             <option value="">Selecione</option>
             <option value="DF">Distrito Federal</option>
             <option value="GO">Goiás</option>

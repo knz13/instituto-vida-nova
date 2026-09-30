@@ -16,10 +16,10 @@ App.templates.inscritos = (() => {
 
     return `
       <article class="card" data-id="${pessoa.id}">
-        <h3>${pessoa.nome}</h3>
+        <h2>${pessoa.nome}</h2>
         <p>${pessoa.email} · ${pessoa.cidade}/${pessoa.estado}</p>
         <p>${interesses || '<span class="text-sm">Sem preferência informada</span>'}</p>
-        <button type="button" class="btn btn-secondary btn-remover-inscrito" data-id="${pessoa.id}">Remover</button>
+        <button type="button" class="btn btn-secondary btn-remover-inscrito" data-id="${pessoa.id}" aria-label="Remover cadastro de ${pessoa.nome}">Remover</button>
       </article>
     `;
   }
