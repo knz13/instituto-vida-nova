@@ -71,11 +71,14 @@
     background-color: var(--color-primary-dark);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.25s ease;
+    visibility: hidden;
+    transition: max-height 0.25s ease, visibility 0s linear 0.25s;
   }
 
   .nav-menu.is-open {
-    max-height: 260px;
+    max-height: 320px;
+    visibility: visible;
+    transition: max-height 0.25s ease, visibility 0s;
   }
 
   .nav-menu li {
