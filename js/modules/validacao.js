@@ -23,8 +23,29 @@ App.modules.validacao = (() => {
     alerta.hidden = false;
   }
 
+  function atualizarErros(form, alerta) {
+    const invalidos = Array.from(form.elements).filter((campo) => campo.hasAttribute('aria-invalid'));
+    invalidos.forEach((campo) => {
+      if (campo.checkValidity()) campo.removeAttribute('aria-invalid');
+    });
+    const restantes = invalidos.filter((campo) => campo.hasAttribute('aria-invalid'));
+    if (restantes.length === invalidos.length) return; // nada mudou: não reanuncia o alerta
+    if (restantes.length === 0) {
+      alerta.hidden = true;
+      alerta.textContent = '';
+    } else {
+      mostrarAlerta(alerta, restantes);
+    }
+  }
+
   function configurar(form, aoEnviarComSucesso) {
     const alerta = document.getElementById('alerta-formulario');
+
+    ['input', 'change'].forEach((tipo) => {
+      form.addEventListener(tipo, () => {
+        if (alerta && !alerta.hidden) atualizarErros(form, alerta);
+      });
+    });
 
     form.addEventListener('submit', (evento) => {
       evento.preventDefault();

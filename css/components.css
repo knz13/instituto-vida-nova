@@ -156,6 +156,12 @@
     visibility: visible;
     transform: translateY(0);
   }
+
+  .nav-item.dropdown-fechado .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+  }
 }
 
 /* Mobile: dropdown embutido no fluxo, some/aparece por classe (clique) */
